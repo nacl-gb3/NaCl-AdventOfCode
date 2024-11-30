@@ -1,6 +1,6 @@
 # glbondiii-AdventOfCode
 
-This is a repo containing my attempts at Advent of Code for the various years 
+This is a repo containing my attempts at Advent of Code for the various years  
 Each year has a particular language and/or theme that I'm focusing on for 
 that year 
 
