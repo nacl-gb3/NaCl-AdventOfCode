@@ -1,6 +1,6 @@
 # Note: Recently watched LowLevelLearning's video on this problem to get an idea of what
 # Advent of Code is like; all other problems are, to my awareness, my own solution 
-string_to_int = {
+string_to_int: dict[str, int] = {
     "one" : 1,
     "two" : 2,
     "three" : 3,
@@ -20,7 +20,7 @@ def main():
             leftmost: int = -1
             rightmost: int = -1
             for i in range(0, len(line)):
-                match = get_match(line, i)
+                match: int = get_match(line, i)
                 if match != -1:
                     if leftmost == -1:
                         leftmost = match
@@ -42,7 +42,6 @@ def get_match(line: str, start: int) -> int:
             return string_to_int[num_str]
 
     return -1
-
 
 main()
 
