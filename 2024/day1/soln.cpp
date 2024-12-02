@@ -6,9 +6,12 @@
 #include <vector>
 
 #include <cassert>
+#include <cstdint>
 
-int solnA(const std::vector<int> &a, const std::vector<int> &b);
-int solnB(const std::vector<int> &a, const std::vector<int> &b);
+std::uint64_t solnA(const std::vector<std::uint64_t> &a,
+                    const std::vector<std::uint64_t> &b);
+std::uint64_t solnB(const std::vector<std::uint64_t> &a,
+                    const std::vector<std::uint64_t> &b);
 
 int main() {
   std::ifstream fin{"input"};
@@ -18,9 +21,9 @@ int main() {
     return 1;
   }
 
-  std::vector<int> a{};
-  std::vector<int> b{};
-  int num{};
+  std::vector<std::uint64_t> a{};
+  std::vector<std::uint64_t> b{};
+  std::uint64_t num{};
   std::size_t word_num{0};
   while (fin >> num) {
     if (word_num % 2 == 0) {
@@ -40,33 +43,35 @@ int main() {
   return 0;
 }
 
-int solnA(const std::vector<int> &a, const std::vector<int> &b) {
+std::uint64_t solnA(const std::vector<std::uint64_t> &a,
+                    const std::vector<std::uint64_t> &b) {
   assert(a.size() == b.size());
 
-  std::size_t list_size = a.size();
-  std::vector<int> list_distances(list_size);
+  std::size_t list_size{a.size()};
+  std::vector<std::uint64_t> list_distances(list_size);
 
   for (std::size_t i{0}; i < list_size; ++i) {
-    int larger = std::max(a[i], b[i]);
-    int smaller = std::min(a[i], b[i]);
+    std::uint64_t larger = std::max(a[i], b[i]);
+    std::uint64_t smaller = std::min(a[i], b[i]);
     list_distances[i] = larger - smaller;
   }
 
   return std::accumulate(list_distances.begin(), list_distances.end(), 0);
 }
 
-int solnB(const std::vector<int> &a, const std::vector<int> &b) {
+std::uint64_t solnB(const std::vector<std::uint64_t> &a,
+                    const std::vector<std::uint64_t> &b) {
   assert(a.size() == b.size());
 
-  std::unordered_map<int, int> list_b_counts{};
+  std::unordered_map<std::uint64_t, std::uint64_t> list_b_counts{};
 
-  for (const int &num : b) {
+  for (const std::uint64_t &num : b) {
     list_b_counts[num]++;
   }
 
   std::size_t similarity_score{0};
 
-  for (const int &num : a) {
+  for (const std::uint64_t &num : a) {
     similarity_score += num * list_b_counts[num];
   }
 
