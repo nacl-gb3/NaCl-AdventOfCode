@@ -21,7 +21,7 @@ int main() {
   std::vector<int> a{};
   std::vector<int> b{};
   int num{};
-  int word_num{0};
+  std::size_t word_num{0};
   while (fin >> num) {
     if (word_num % 2 == 0) {
       a.push_back(num);
@@ -64,7 +64,7 @@ int solnB(const std::vector<int> &a, const std::vector<int> &b) {
     list_b_counts[num]++;
   }
 
-  size_t similarity_score{0};
+  std::size_t similarity_score{0};
 
   for (const int &num : a) {
     similarity_score += num * list_b_counts[num];
