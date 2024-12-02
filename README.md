@@ -7,7 +7,7 @@ that year
 Current Season : 2024
 
 ## Started In Season
-* 2024: C++ (starting tomorrow)
+* 2024: C++ (in progress)
 
 ## Started Out Of Season
 * 2023: Python (in progress)
