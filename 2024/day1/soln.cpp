@@ -1,16 +1,16 @@
 #include <algorithm>
-#include <cassert>
 #include <fstream>
 #include <iostream>
 #include <numeric>
 #include <unordered_map>
 #include <vector>
 
+#include <cassert>
+
 int solnA(const std::vector<int> &a, const std::vector<int> &b);
 int solnB(const std::vector<int> &a, const std::vector<int> &b);
 
 int main() {
-  std::cout << "I am here\n";
   std::ifstream fin{"input"};
 
   if (!fin) {
