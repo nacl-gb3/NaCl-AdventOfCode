@@ -19,6 +19,9 @@
             ]))
           ];
           buildInputs = [ ];
+          shellHook = ''
+            nix flake update
+          '';
         };
       });
 }
