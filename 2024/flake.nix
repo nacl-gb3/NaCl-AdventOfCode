@@ -24,9 +24,6 @@
             # pkgs.bear
           ];
           buildInputs = [ ];
-          shellHook = ''
-            nix flake update
-          '';
         };
       });
 }
